@@ -7,7 +7,7 @@ development:
   adapter: mysql2
   username: root
   password:
-  host: localhost
+  host: 127.0.0.1
   database: furima-47910_development
 
 test:
@@ -15,7 +15,7 @@ test:
   adapter: mysql2
   username: root
   password:
-  host: localhost
+  host: 127.0.0.1
   database: furima-47910_test
 
 production:
