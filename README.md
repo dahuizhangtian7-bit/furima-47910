@@ -8,7 +8,7 @@
 |first_name        |string  |null: false|
 |kana_family_name  |string  |null: false|
 |kana_first_name   |string  |null: false|
-|birthday          |datetime|null: false|
+|birthday          |date    |null: false|
 
 ### Association
 - has_many :items
@@ -16,20 +16,19 @@
 
 
 ## itemsテーブル
-|Column  |Type   |Options    |
-|--------|-------|-----------|
-|image   |text   |null: false|
-|name    |string |null: false|
-|content |text   |null: false|
-|category|string |null: false|
-|status  |string |null: false|
-|cost    |string |null: false|
-|area    |string |null: false|
-|days    |string |null: false|
-|price   |integer|null: false|
+|Column     |Type   |Options    |
+|-----------|-------|-----------|
+|name       |string |null: false|
+|content    |text   |null: false|
+|category_id|integer|null: false|
+|status_id  |integer|null: false|
+|cost_id    |integer|null: false|
+|area_id    |integer|null: false|
+|day_id     |integer|null: false|
+|price      |integer|null: false|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_one :purchase
 
 
@@ -38,7 +37,6 @@
 |-------|----------|------------------------------|
 |user   |references|null: false, foreign_key: true|
 |item   |references|null: false, foreign_key: true|
-|address|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -49,12 +47,12 @@
 ## addressesテーブル
 |Column      |Type   |Options    |
 |------------|-------|-----------|
-|postal      |integer|null: false|
-|prefecture  |string |null: false|
+|postal      |string |null: false|
+|area_id     |integer|null: false|
 |city        |string |null: false|
 |street      |string |null: false|
 |building    |string |           |
-|phone_number|integer|null: false|
+|phone_number|string |null: false|
 
 ### Association
 - belongs_to :purchase
