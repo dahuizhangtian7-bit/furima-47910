@@ -61,4 +61,8 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+  config.active_record.async_query_executor = :inline
+  config.active_record.global_executor_concurrency = 1
+  config.active_record.query_log_tags_enabled = false
+
 end
