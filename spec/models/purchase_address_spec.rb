@@ -26,7 +26,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'postalに全角文字列が入っている場合は購入できない' do
         @purchase_address.postal = '１２３－４５６７'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Postal is invalid. Include hyphen(-)")
+        expect(@purchase_address.errors.full_messages).to include('Postal is invalid. Include hyphen(-)')
       end
       it 'postalのハイフンが抜けている場合は購入できない' do
       end
@@ -53,24 +53,24 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'phone_numberが数字以外では購入できない' do
         @purchase_address.phone_number = 'あいうえお'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberが全角数字では購入できない' do
         @purchase_address.phone_number = '１２３４５６７８９０'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberが10桁未満では購入できない' do
         @purchase_address.phone_number = '123456789'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberが11桁より多い場合は購入できない' do
         @purchase_address.phone_number = '123456789012'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
-      it "tokenが空では購入できない" do
+      it 'tokenが空では購入できない' do
         @purchase_address.token = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
